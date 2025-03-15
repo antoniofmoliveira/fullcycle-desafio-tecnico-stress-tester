@@ -44,7 +44,7 @@
     * maior tempo de resposta
     * quantidade de erros de rede (server não respondeu ao request)
   * resumo por status code
-    * erro -1 indicar erros de rede (server não respondeu ao request)
+    * erro -1 indica erros de rede (server não respondeu ao request)
   * distribuição de erros por percentil de tempo das respostas (10%, 25%, 50%, 75%, 90%, 99%) - quão distante estão os piores tempos dos melhores tempos
 
 ```bash
