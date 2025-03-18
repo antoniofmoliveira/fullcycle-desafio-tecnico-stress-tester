@@ -6,3 +6,10 @@ runstresstest:
 
 test:
 	cd stress-tester && go test ./...
+
+build:
+	cd stress-tester && docker build -t stress-tester .
+	cd server && docker build -t server .
+
+run-server:
+	docker run --name server -p 8080:8080 server

@@ -1,7 +1,6 @@
 package stats
 
 import (
-	"fmt"
 	"reflect"
 	"testing"
 	"time"
@@ -23,28 +22,13 @@ func TestCalculateRed(t *testing.T) {
 			args: args{
 				recs: mockReds,
 			},
+
 			want: map[string]*dto.ResultRed{
-				fmt.Sprintf("%d", now.Minute()*100+now.Second()): {
-					NumRequestPerSecond:          10,
-					NumRequestWithErrorPerSecond: 0,
+				"0000": {
+					NumRequestPerSecond:          30,
+					NumRequestWithErrorPerSecond: 13,
 					NumNetworkErrorPerSecond:     0,
-					AverageDuration:              time.Duration(10 * time.Second),
-					MaxDuration:                  time.Duration(time.Second),
-					MinDuration:                  time.Duration(time.Second),
-				},
-				fmt.Sprintf("%d", now2.Minute()*100+now2.Second()): {
-					NumRequestPerSecond:          17,
-					NumRequestWithErrorPerSecond: 10,
-					NumNetworkErrorPerSecond:     0,
-					AverageDuration:              time.Duration(17 * time.Second),
-					MaxDuration:                  time.Duration(time.Second),
-					MinDuration:                  time.Duration(time.Second),
-				},
-				fmt.Sprintf("%d", now3.Minute()*100+now3.Second()): {
-					NumRequestPerSecond:          3,
-					NumRequestWithErrorPerSecond: 3,
-					NumNetworkErrorPerSecond:     0,
-					AverageDuration:              time.Duration(3 * time.Second),
+					AverageDuration:              time.Duration(30 * time.Second),
 					MaxDuration:                  time.Duration(time.Second),
 					MinDuration:                  time.Duration(time.Second),
 				},

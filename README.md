@@ -77,6 +77,16 @@ P90             12.718199ms
 P99             13.30991ms
 ```
 
+### Execução
+
+* no raiz do projeto execute `make build` para gerar docker image do stress-tester
+* execute `docker run stresstester  --url=http://google.com --requests=105 --concurrency=10` para ver o relatório gerado
+
+#### Execução no Docker
+
+* no raiz do projeto execute `make run-server` para executar o server de exemplo no docker
+* execute `docker inspect server | grep "IPAddress"` para obter o IP do server no docker
+* execute `docker run stresstester  --url=http://172.17.0.2:8080 --requests=105 --concurrency=10` para ver o relatório gerado. substitua `172.17.0.2` pelo IP do server no docker obtido no passo anterior.
 
 ## Objetivo:
 
@@ -108,4 +118,3 @@ O sistema deverá gerar um relatório com informações específicas após a exe
 
 * Poderemos utilizar essa aplicação fazendo uma chamada via docker. Ex:
   * `docker run <sua imagem docker> —url=http://google.com —requests=1000 —concurrency=10`
-  * `docker run stresstester  --url=http://google.com --requests=1000 --concurrency=10`

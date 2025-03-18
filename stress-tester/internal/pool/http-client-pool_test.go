@@ -24,7 +24,7 @@ func TestStressEndpoint(t *testing.T) {
 			name: "Success",
 			args: args{
 				method:  "GET",
-				url:     "http://localhost:8080/",
+				url:     "http://localhost:8080/hello",
 				payload: `{"message":"World"}`,
 			},
 			wantErr: false,
@@ -33,7 +33,7 @@ func TestStressEndpoint(t *testing.T) {
 			name: "Fail",
 			args: args{
 				method:  "GET",
-				url:     "http://localhost:8080/hello",
+				url:     "http://localhost:8080/helloo",
 				payload: `{"message":"World"}`,
 			},
 			wantErr: true,
@@ -41,7 +41,7 @@ func TestStressEndpoint(t *testing.T) {
 	}
 	server := &http.Server{Addr: ":8080"}
 	defer server.Close()
-	http.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("GET /hello", func(w http.ResponseWriter, r *http.Request) {
 		body, err := io.ReadAll(r.Body)
 		if err != nil {
 			slog.Error("Can't read body", "error", err)
