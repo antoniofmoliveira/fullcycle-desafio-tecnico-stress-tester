@@ -79,7 +79,7 @@ P99             13.30991ms
 
 ### Execução
 
-* no raiz do projeto execute `make build` para gerar docker image do stress-tester
+* no raiz do projeto execute `make build` para gerar docker image do stress-tester e do server de exemplo
 * execute `docker run stresstester  --url=http://google.com --requests=105 --concurrency=10` para ver o relatório gerado
 
 #### Execução no Docker
